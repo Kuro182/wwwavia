@@ -1,0 +1,455 @@
+<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <title>Авиакомпания "Jum747.jet"</title>
+   <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <link rel="stylesheet" href="CSS.css">
+   <link rel="stylesheet" media="screen and (color)" href="example.css">
+   <script src="script.js"></script>
+   <!-- <link rel="stylesheet" media="print" href="example.css"> -->
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="container">
+				<div class="adress">
+					<div class="phone">
+						<div class="number"><span class="number-1">8-800-455-95</span> по рейсам SV5533(звонок бесплатный)</div>
+					</div>
+					<div class="menu_body">
+						<div class="menu_pic"><img src="images/vk0.png"></div>
+						<div class="menu_list">Обратная связь</div>
+						<div class="menu_pic"><img src="images/vk1.png"></div>
+						<div class="menu_list">Мы в соцсетях</div>
+						<div class="menu_pic"><img src="images/vk2.png"></div>
+						<div class="menu_list">Рус/Eng</div>
+					</div>
+				</div>  
+				 <div class="phone"> 
+					 <div class="number"><span class="number-1">8-800-955-45</span> по рейсам FV6644(звонок бесплатный)</div> 
+				 </div> 
+			</div>
+		</header>
+		<div class="mainpage">
+			<div class="container">
+				<div class="nameof"> 
+					<div class="logogo">	
+						
+						<div class="logo"><a class="link"href="new 1.html"><img src="images/image.png"></a></div> 
+					</div>
+					<div class="linknameofmain">
+						<div class="linknameof"><a class="link"href="">ПОЛЕТ С НАМИ</a>
+						<div class="dropdown-content">
+								<a href="questions.html">Часто задаваемые вопросы</a>
+								<a href="funonboard.html">Развлечения на борту</a>
+								<a href="flywithanimals.html">Перелет с животными</a>
+								<a href="buyonboard.html">Покупки на борту</a>
+								<a href="rules.html">Правила поведения в самолете</a>
+							</div>
+						</div> 
+						<div class="linknameof"><a class="link"href="">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</a>
+							<div class="dropdown-content">
+								<a href="food.html">Особое питание</a>
+								<a href="comfort.html">Повышенный комфорт</a>
+								<a href="safety.html">Страхование</a>
+								<a href="baggage.html">Багаж</a>
+							</div>
+						</div> 
+						<div class="linknameof"><a class="link"href="Aboutcompany.html">О КОМПАНИИ</a></div> 					
+						<div class="linknameof"><a class="link"href="Onlineregistration.html">ОНЛАЙН РЕГИСТРАЦИЯ</a></div> 
+					</div>				
+				</div>
+				<div class="photoreg"> 		
+					 <div class="slider">
+						<div class="slider__wrapper">
+						  <div class="slider__item">
+							<div class="ph"><img class="kartinka" src="images/boeing1.png"></div>
+						  </div>
+						  <div class="slider__item">
+							<div class="ph"><img class="kartinka" src="images/boeing2.jpg"></div>
+						  </div>
+						  <div class="slider__item">
+							<div class="ph"><img class="kartinka" src="images/turb.jpg"></div>
+						  </div>
+						 
+						</div>
+						<a class="slider__control slider__control_left" href="#" role="button"></a>
+						<a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+					  </div>
+    <script>
+    'use strict';
+    var multiItemSlider = (function () {
+      return function (selector, config) {
+        var
+          _mainElement = document.querySelector(selector), // основный элемент блока
+          _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
+          _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
+          _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
+          _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
+          _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
+          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
+          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+          _positionLeftItem = 0, // позиция левого активного элемента
+          _transform = 0, // значение транфсофрмации .slider_wrapper
+          _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
+          _items = []; // массив элементов
+        // наполнение массива _items
+        _sliderItems.forEach(function (item, index) {
+          _items.push({ item: item, position: index, transform: 0 });
+        });
+
+        var position = {
+          getMin: 0,
+          getMax: _items.length - 1,
+        }
+
+        var _transformItem = function (direction) {
+          if (direction === 'right') {
+            if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) >= position.getMax) {
+              return;
+            }
+            if (!_sliderControlLeft.classList.contains('slider__control_show')) {
+              _sliderControlLeft.classList.add('slider__control_show');
+            }
+            if (_sliderControlRight.classList.contains('slider__control_show') && (_positionLeftItem + _wrapperWidth / _itemWidth) >= position.getMax) {
+              _sliderControlRight.classList.remove('slider__control_show');
+            }
+            _positionLeftItem++;
+            _transform -= _step;
+          }
+          if (direction === 'left') {
+            if (_positionLeftItem <= position.getMin) {
+              return;
+            }
+            if (!_sliderControlRight.classList.contains('slider__control_show')) {
+              _sliderControlRight.classList.add('slider__control_show');
+            }
+            if (_sliderControlLeft.classList.contains('slider__control_show') && _positionLeftItem - 1 <= position.getMin) {
+              _sliderControlLeft.classList.remove('slider__control_show');
+            }
+            _positionLeftItem--;
+            _transform += _step;
+          }
+          _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+        }
+
+        // обработчик события click для кнопок "назад" и "вперед"
+        var _controlClick = function (e) {
+          if (e.target.classList.contains('slider__control')) {
+            e.preventDefault();
+            var direction = e.target.classList.contains('slider__control_right') ? 'right' : 'left';
+            _transformItem(direction);
+          }
+        };
+
+        var _setUpListeners = function () {
+          // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
+          _sliderControls.forEach(function (item) {
+            item.addEventListener('click', _controlClick);
+          });
+        }
+
+        // инициализация
+        _setUpListeners();
+
+        return {
+          right: function () { // метод right
+            _transformItem('right');
+          },
+          left: function () { // метод left
+            _transformItem('left');
+          }
+        }
+
+      }
+    }());
+
+    var slider = multiItemSlider('.slider')
+
+  </script>
+			
+					<div class="registration">	
+			
+						<div class="regg">
+						<div class="regavia">АВИАБИЛЕТЫ</div>	
+						<div class="from">
+						Откуда
+						</div>
+						<select class="regfrom">
+									  <option>Анталья</option>
+									  <option>Алания</option>
+									  <option>Берлин</option>
+									  <option>Антверпен</option>
+									  <option>Милан</option>
+									  <option>Баден-Баден</option>
+									  <option>Детроид</option>
+									  <option>Шеффилд</option>
+									  <option>Москва</option>
+									  <option>Санкт-Петербург</option>
+									  <option>Нижний Новгород</option>
+									  <option>Барселона</option>
+									  <option>Валенсия</option>
+									  <option>Жирона</option>
+									  <option>Красноярск</option>
+									  <option>Сочи</option>
+									  <option>Дубаи</option>
+									</select>
+									<div class="from">
+										Куда
+										</div>
+						<select class="regfrom">
+									  <option>Анталья</option>
+									  <option>Алания</option>
+									  <option>Берлин</option>
+									  <option>Антверпен</option>
+									  <option>Милан</option>
+									  <option>Баден-Баден</option>
+									  <option>Детроид</option>
+									  <option>Шеффилд</option>
+									  <option>Москва</option>
+									  <option>Санкт-Петербург</option>
+									  <option>Нижний Новгород</option>
+									  <option>Барселона</option>
+									  <option>Валенсия</option>
+									  <option>Жирона</option>
+									  <option>Красноярск</option>
+									  <option>Сочи</option>
+									  <option>Дубаи</option>
+									</select>
+						<div class="select"> 
+							
+							<div class="reg1"><input type="checkbox" name="option1" value="a1">В одну сторону</div> 						
+							<div class="reg1"><input type="checkbox" name="option2" value="a2">Туда и обратно</div> 
+						</div>
+						<div class="select"> 
+						
+							<div class="regselect">
+						<div class="from">
+						Вылет
+						</div>
+							<input type="date" name="option3" value="a3">							
+							</div>
+							<div class="regselect">
+							<div class="from">
+						Прилет
+						</div>
+							<input type="date" name="option4" value="a4">
+							</div>
+						</div> 
+						<div class="from">
+						Взрослые от 12 лет
+						</div>
+						<select class="regfrom">
+									  <option>0</option>
+									  <option>1</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									  <option>6</option>
+									  <option>7</option>
+									  <option>8</option>
+									  <option>9</option>
+									  <option>10</option>
+									  <option>11</option>
+									  
+						</select>
+						<div class="from">
+						Дети от 2-12 лет
+						</div>
+						<select class="regfrom">
+									  <option>0</option>
+									  <option>1</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									  <option>6</option>
+									  <option>7</option>
+									  <option>8</option>
+									  <option>9</option>
+									  <option>10</option>
+									  <option>11</option>
+						</select>
+						<div class="from">
+						Младенцы до 2 лет
+						</div>
+						<select class="regfrom">
+									 <option>0</option>
+									  <option>1</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									  <option>6</option>
+									  <option>7</option>
+									  <option>8</option>
+									  <option>9</option>
+									  <option>10</option>
+									  <option>11</option>
+						</select>
+						
+													
+						<div class="regfind"><a href="#" class="button5">НАЙТИ АВИАБИЛЕТЫ</a></div> 																						
+						</div>
+					</div> 
+				</div>
+				<div class="photoinformation">
+					<div class="picture1">
+						<div class="picinf">
+							<div class="picinffirst">
+								Скидки на все<br>
+								морские направления
+							</div>		
+							<div class="butt">
+								<a href="seaflights.html" class="button1">ПОДРОБНЕЕ</a>
+							</div>
+							
+						</div>												
+					</div>
+					<div class="picture2">
+						<div class="picinf1">
+							<div class="picinfsecond">
+								Путешествуйте с животными<br>								
+							</div>
+							<div class="butt">
+								<a href="flywithanimals.html" class="button2">ПОДРОБНЕЕ</a>
+							</div>
+						</div>
+					</div>
+					<div class="picture3">
+						<div class="picinf2">
+							<div class="picinfthird">
+								Забронируй место в<br>
+								бизнес классе								
+							</div>	
+							<div class="butt">
+									<a href="businessclass.html" class="button3">ПОДРОБНЕЕ</a>
+							</div>								
+						</div>
+					</div>
+				</div>	
+				<div class="newsandpilots">
+					<div class="news">						
+							<h2 class="newsarticle">
+								Новости авиакомпании
+							</h2>
+							<div class="firstnews">
+								<h3 class="news1">Как сделать путешествие безопасным</h3>
+								«Jum747» планомерно увеличивает количество выполняемых рейсов.
+								Соблюдая простые правила, мы совместно сможем сделать путешествие комфортным и безопасным
+								<div class="date">
+									20.05.2020
+								</div>
+							</div>
+							<div class="firstnews">
+								<h3 class="news1">«Jum747» приступила к перевозке медицинских грузов</h3>
+								Авиакомпания «Jum747» в поддержку глобальных отраслевых тенденций начала выполнение программы международных рейсов с медицинскими грузами на борту
+								<div class="date">
+									25.05.2020
+								</div>
+							</div>
+					</div>
+					<div class="pilots">
+						<div class="picinfopilots">							
+							<div class="actions">
+							Jum747 <br> возобновляет полеты с 1 июня!
+							</div>
+							<div class="butt">
+									<a href="flightsrenew.html" class="button4">ПОДРОБНЕЕ</a>
+							</div>		
+						</div>
+					</div>
+					
+				</div>
+				<div class="footer">
+					<div class="nameoffooter"> 					
+						<ul class="linknameofmainfooter">
+							<div class="linknameoffooter1"> <a href="#" class="button6">Комфорт на борту</a> 
+								<div class="dropdown-content">
+								<a href="food.html">Особое питание</a>
+								<a href="comfort.html">Повышенный комфорт</a>
+								<a href="safety.html">Страхование</a>
+								<a href="baggage.html">Багаж</a>
+								</div>
+							</div>
+							<li class="linknameoffooter">Особое питание</li> 
+							<li class="linknameoffooter">Места повышенного комфорта</li> 					
+							<li class="linknameoffooter">Страхование</li> 
+							<li class="linknameoffooter">Багаж</li> 							
+						</ul>				
+					</div>
+				</div>
+				<div class="uberfooter">
+					<div class="uberfooter1">
+						<ul class="uberfooter1list">
+							<li class="listelement"><a class="href" href=""><h3 class="allpagesh3">Полет с нами</h3></a></li>
+							<li class="listelement"><a class="href" href="questions.html">Часто задаваемые вопросы</a></li>
+							<li class="listelement"><a class="href" href="funonboard.html">Развлечения на борту</a> </li>
+							<li class="listelement"><a class="href" href="flywithanimals.html">Перелет с животными</a> </li>
+							<li class="listelement"><a class="href" href="buyonboard.html">Покупки на борту</a> </li>
+							<li class="listelement"><a class="href" href="rules.html">Правила поведения в самолете</a> </li>
+						</ul>
+					</div>
+					<div class="uberfooter1">
+						<ul class="uberfooter1list">
+							<li class="listelement"><a class="href" href="#"><h3 class="allpagesh3">Дополнительные услуги</h3></a> </li>
+							<li class="listelement"><a class="href" href="food.html">Особое питание</a> </li>
+							<li class="listelement"><a class="href" href="comfort.html">Повышенный комфорт</a> </li>
+							<li class="listelement"><a class="href" href="safety.html">Страхование</a> </li>
+							<li class="listelement"><a class="href" href="baggage.html">Багаж</a> </li>
+							<li class="listelement"><a class="href" href="businessclass.html">Место в бизнес классе</a> </li>
+						</ul>
+					</div>
+					<div class="uberfooter1">
+						<ul class="uberfooter1list">												
+							<li class="listelement"><h3 class="allpagesh3">Обратная связь</h3></li>
+							<li class="listelement">По рейсам SV5533: <br>8-800-455-95 </li>
+							<li class="listelement">По рейсам FV6644:<br> 8-800-955-45  </li>
+							<li class="listelement"><a class="href" href=""><img src="images/vk.png"></a><a class="href" href=""><img src="images/inst.png"></a><a class="href" href=""><img src="images/fb.png"></a> </li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				<div class="uberuberfooter">
+					<hr>
+					Made by Natalia Kovriazhenkova<br>
+					2020. © All rights reserved 
+					
+				</div>
+			</div>
+		</div>						
+	</div>	
+ </body>
+ </html>
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
